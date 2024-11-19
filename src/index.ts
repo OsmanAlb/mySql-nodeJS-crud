@@ -9,9 +9,9 @@ app.use(express.json()); // Enable JSON body parsing
 // Routes
 app.get("/api/", productController.getAllProducts);
 app.get("/api/:id", productController.getProductById);
-app.post("/api/", productController.addProduct);
-app.put("/api/:id", productController.updateProduct);
-app.delete("/api/:id", productController.deleteProduct);
+app.post("/api/create", productController.addProduct);
+app.put("/api/:id/update", productController.updateProduct);
+app.delete("/api/:id/delete", productController.deleteProduct);
 
 // Centralized error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
@@ -21,5 +21,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // Server listening
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running`);
 });
