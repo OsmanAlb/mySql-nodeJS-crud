@@ -7,11 +7,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json()); // Enable JSON body parsing
 
 // Routes
-app.get("/api/products", productController.getAllProducts);
-app.get("/api/products/:id", productController.getProductById);
-app.post("/api/products", productController.addProduct);
-app.put("/api/products/:id", productController.updateProduct);
-app.delete("/api/products/:id", productController.deleteProduct);
+app.get("/api/", productController.getAllProducts);
+app.get("/api/:id", productController.getProductById);
+app.post("/api/", productController.addProduct);
+app.put("/api/:id", productController.updateProduct);
+app.delete("/api/:id", productController.deleteProduct);
 
 // Centralized error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
